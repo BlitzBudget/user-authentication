@@ -23,6 +23,10 @@ func CognitoSignup(cognitoClient cognitoidentityprovideriface.CognitoIdentityPro
 	fmt.Printf("Creating user for %v \n", lowercaseEmail)
 	attributeTypeArray := []*cognitoidentityprovider.AttributeType{
 		{
+			Name:  aws.String("email"),
+			Value: &lowercaseEmail,
+		},
+		{
 			Name:  aws.String("locale"),
 			Value: &locale,
 		},
