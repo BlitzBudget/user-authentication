@@ -29,11 +29,11 @@ func CognitoSignup(cognitoClient cognitoidentityprovideriface.CognitoIdentityPro
 			Value: &config.ExportFormat,
 		},
 		{
-			Name:  aws.String("custom:first_name"),
+			Name:  aws.String("name"),
 			Value: req.Name,
 		},
 		{
-			Name:  aws.String("custom:last_name"),
+			Name:  aws.String("family_name"),
 			Value: req.Name,
 		},
 		{
