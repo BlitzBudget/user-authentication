@@ -14,8 +14,6 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 	fmt.Printf("Processing request data for request %v.\n", request.RequestContext.RequestID)
 	requstAsByte, _ := json.Marshal(request)
 	fmt.Printf("Body size = %v.\n", string(requstAsByte))
-	localeHeader := request.Headers["CloudFront-Viewer-Country"]
-	fmt.Printf("The Locale in the header is %v", localeHeader)
 
 	header := map[string]string{
 		"Access-Control-Allow-Origin":      "*",
