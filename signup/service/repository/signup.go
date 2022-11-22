@@ -19,6 +19,8 @@ func CognitoSignup(cognitoClient cognitoidentityprovideriface.CognitoIdentityPro
 	lowercaseEmail := strings.ToLower(*req.Email)
 	secretHash := ComputeSecretHash(&lowercaseEmail)
 	locale := "EN"
+
+	fmt.Printf("Creating user for %v \n", lowercaseEmail)
 	attributeTypeArray := []*cognitoidentityprovider.AttributeType{
 		{
 			Name:  aws.String("locale"),
