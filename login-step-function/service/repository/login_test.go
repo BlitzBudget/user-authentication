@@ -32,8 +32,8 @@ func TestCognitoLogin(t *testing.T) {
 		Password: &password,
 	}
 
-	session, err := CognitoLogin(mockCC, &req)
+	resp,  err := CognitoLogin(mockCC, &req)
 
 	assert.NoError(err)
-	assert.Equal(*session, "not empty")
+	assert.NotNil(resp)
 }
