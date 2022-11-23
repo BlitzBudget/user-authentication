@@ -1,16 +1,16 @@
 package handler
 
 import (
-	"confirm-signup/service"
-	"confirm-signup/service/models"
 	"context"
 	"encoding/json"
 	"fmt"
+	"login/service"
+	"login/service/models"
 
 	"github.com/aws/aws-lambda-go/events"
 )
 
-func HandleRequest(ctx context.Context, request models.RequestParameter) (events.APIGatewayProxyResponse, error) {
+func HandleRequest(ctx context.Context, request *string) (events.APIGatewayProxyResponse, error) {
 	fmt.Printf("Processing request data for request %v.\n", request)
 
 	header := map[string]string{
@@ -19,8 +19,8 @@ func HandleRequest(ctx context.Context, request models.RequestParameter) (events
 		"Access-Control-Allow-Methods":     "OPTIONS,POST",
 		"Access-Control-Allow-Credentials": "true",
 	}
+	session, err := service.LoginUser(request)
 
-	err := service.ConfirmSignUp(&request)
 	if err != nil {
 		errorMessage := err.Error()
 		errorRespose := models.ErrorHttpResponse{
@@ -30,10 +30,11 @@ func HandleRequest(ctx context.Context, request models.RequestParameter) (events
 		return events.APIGatewayProxyResponse{Body: string(errorAsBytes), StatusCode: 500, Headers: header}, nil
 	}
 
-	response := models.HTTPResponse{
-		Email:    request.Email,
-		Password: request.NewPassword,
+	message := "Successfuly sent an SMS to your mobile number"
+	response := models.HttpResponse{
+		Message: &message,
+		Session: session,
 	}
-	responseAsBytes, _ := json.Marshal(response)
-	return events.APIGatewayProxyResponse{Body: string(responseAsBytes), StatusCode: 200, Headers: header}, nil
+	respAsBytes, _ := json.Marshal(response)
+	return events.APIGatewayProxyResponse{Body: string(respAsBytes), StatusCode: 200, Headers: header}, nil
 }

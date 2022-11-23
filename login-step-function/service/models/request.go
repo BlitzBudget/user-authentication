@@ -1,6 +1,6 @@
 package models
 
-type HTTPResponse struct {
+type RequestParameter struct {
 	Email    *string `validate:"required" json:"email"`
 	Password *string `validate:"required" json:"password"`
 }
