@@ -10,7 +10,19 @@ import (
 	"login/service/errors"
 	"login/service/models"
 	"net/mail"
+
+	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
 )
+
+func ParseResponse(adminInitiateAuthOutput *cognitoidentityprovider.AdminInitiateAuthOutput) *models.ResponseModel {
+	responseModel := models.ResponseModel{
+		Session:              adminInitiateAuthOutput.Session,
+		AuthenticationResult: adminInitiateAuthOutput.AuthenticationResult,
+		ChallengeName:        adminInitiateAuthOutput.ChallengeName,
+	}
+
+	return &responseModel
+}
 
 func ParseRequest(body *string) (*models.RequestParameter, error) {
 	requestParamater := models.RequestParameter{}
