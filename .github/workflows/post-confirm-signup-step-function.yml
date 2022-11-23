@@ -19,7 +19,7 @@ jobs:
 
       # Deploy ConfirmSignupStateFunction
       - name: Deploy confirm-signup-state-function
-        run: cd confirm-signup-state-function/; GOOS=linux CGO_ENABLED=0 go build cmd/main.go; zip confirmSignupStateFunction.zip main; ls;
+        run: cd confirm-signup-state-function/; GOOS=linux CGO_ENABLED=0 go build cmd/main.go; zip confirmSignupStepFunction.zip main; ls;
 
       - name: Deploy ConfirmSignupStateFunction Test
         run: cd confirm-signup-state-function/; go test -v ./...
@@ -31,4 +31,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
           function_name: confirmSignupStateFunction
-          zip_file: confirm-signup-state-function/confirmSignupStateFunction.zip
+          zip_file: confirm-signup-state-function/confirmSignupStepFunction.zip
