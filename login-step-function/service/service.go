@@ -9,7 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
 )
 
-func LoginUser(requestMap *map[string]string) (*string, error) {
+func LoginUser(requestMap *map[string]string) (*models.ResponseModel, error) {
 	// Initialize a session that the SDK will use to load
 	// credentials from the shared credentials file ~/.aws/credentials.
 	sess := session.Must(session.NewSessionWithOptions(session.Options{
@@ -24,11 +24,12 @@ func LoginUser(requestMap *map[string]string) (*string, error) {
 		Email:    &email,
 		Password: &password,
 	}
-	session, err := repository.CognitoLogin(cognitoClient, &requestObject)
+
+	resp, err := repository.CognitoLogin(cognitoClient, &requestObject)
 	if err != nil {
 		fmt.Printf("LoginUser: There was an error logging the user %v", err)
 		return nil, err
 	}
 
-	return session, nil
+	return resp, nil
 }
