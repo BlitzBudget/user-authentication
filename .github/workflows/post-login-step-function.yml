@@ -19,7 +19,7 @@ jobs:
 
       # Deploy LoginStateFunction
       - name: Deploy login-step-function
-        run: cd login-step-function/; GOOS=linux CGO_ENABLED=0 go build cmd/main.go; zip loginStateFunction.zip main; ls;
+        run: cd login-step-function/; GOOS=linux CGO_ENABLED=0 go build cmd/main.go; zip loginStepFunction.zip main; ls;
 
       - name: Deploy LoginStateFunction Test
         run: cd login-step-function/; go test -v ./...
@@ -30,5 +30,5 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
-          function_name: loginStateFunction
-          zip_file: login-step-function/loginStateFunction.zip
+          function_name: loginStepFunction
+          zip_file: login-step-function/loginStepFunction.zip
