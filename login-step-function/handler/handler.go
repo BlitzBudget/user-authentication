@@ -4,13 +4,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"login/service"
 	"login/service/models"
 
 	"github.com/aws/aws-lambda-go/events"
 )
 
-func HandleRequest(ctx context.Context, request events.APIGatewayProxyResponse) (events.APIGatewayProxyResponse, error) {
+func HandleRequest(ctx context.Context, request interface{}) (events.APIGatewayProxyResponse, error) {
 	fmt.Printf("Processing request data for request %v.\n", request)
 
 	header := map[string]string{
@@ -19,7 +18,7 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyResponse) 
 		"Access-Control-Allow-Methods":     "OPTIONS,POST",
 		"Access-Control-Allow-Credentials": "true",
 	}
-	session, err := service.LoginUser(&request.Body)
+	/*session, err := service.LoginUser(&request)
 
 	if err != nil {
 		errorMessage := err.Error()
@@ -28,12 +27,12 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyResponse) 
 		}
 		errorAsBytes, _ := json.Marshal(errorRespose)
 		return events.APIGatewayProxyResponse{Body: string(errorAsBytes), StatusCode: 500, Headers: header}, nil
-	}
+	}*/
 
 	message := "Successfuly sent an SMS to your mobile number"
 	response := models.HttpResponse{
 		Message: &message,
-		Session: session,
+		Session: nil,
 	}
 	respAsBytes, _ := json.Marshal(response)
 	return events.APIGatewayProxyResponse{Body: string(respAsBytes), StatusCode: 200, Headers: header}, nil
