@@ -13,12 +13,12 @@ type mockCognitoClient struct {
 	cognitoidentityprovideriface.CognitoIdentityProviderAPI
 }
 
-func (m *mockCognitoClient) InitiateAuth(input *cognitoidentityprovider.InitiateAuthInput) (*cognitoidentityprovider.InitiateAuthOutput, error) {
+func (m *mockCognitoClient) AdminInitiateAuth(input *cognitoidentityprovider.AdminInitiateAuthInput) (*cognitoidentityprovider.AdminInitiateAuthOutput, error) {
 	session := "not empty"
-	cogInitiateAuthOutput := cognitoidentityprovider.InitiateAuthOutput{
+	cogAdminInitiateAuthOutput := cognitoidentityprovider.AdminInitiateAuthOutput{
 		Session: &session,
 	}
-	return &cogInitiateAuthOutput, nil
+	return &cogAdminInitiateAuthOutput, nil
 }
 
 func TestCognitoLogin(t *testing.T) {
