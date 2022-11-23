@@ -13,9 +13,9 @@ type mockCognitoClient struct {
 	cognitoidentityprovideriface.CognitoIdentityProviderAPI
 }
 
-func (m *mockCognitoClient) AdminInitiateAuth(input *cognitoidentityprovider.AdminInitiateAuthInput) (*cognitoidentityprovider.AdminInitiateAuthOutput, error) {
+func (m *mockCognitoClient) InitiateAuth(input *cognitoidentityprovider.InitiateAuthInput) (*cognitoidentityprovider.InitiateAuthOutput, error) {
 	session := "not empty"
-	cogInitiateAuthOutput := cognitoidentityprovider.AdminInitiateAuthOutput{
+	cogInitiateAuthOutput := cognitoidentityprovider.InitiateAuthOutput{
 		Session: &session,
 	}
 	return &cogInitiateAuthOutput, nil
