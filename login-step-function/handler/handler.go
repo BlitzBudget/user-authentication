@@ -9,7 +9,7 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 )
 
-func HandleRequest(ctx context.Context, request interface{}) (events.APIGatewayProxyResponse, error) {
+func HandleRequest(ctx context.Context, request *map[string]string) (events.APIGatewayProxyResponse, error) {
 	fmt.Printf("Processing request data for request %v.\n", request)
 
 	header := map[string]string{
@@ -18,7 +18,7 @@ func HandleRequest(ctx context.Context, request interface{}) (events.APIGatewayP
 		"Access-Control-Allow-Methods":     "OPTIONS,POST",
 		"Access-Control-Allow-Credentials": "true",
 	}
-	/*session, err := service.LoginUser(&request)
+	/*session, err := service.LoginUser(request)
 
 	if err != nil {
 		errorMessage := err.Error()
