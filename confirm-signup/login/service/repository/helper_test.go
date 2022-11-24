@@ -1,11 +1,36 @@
 package repository
 
 import (
-	"login/service/config"
+	"confirm-signup/login/service/config"
 	"testing"
 
+	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
 	"github.com/stretchr/testify/assert"
 )
+
+func TestParseResponse(t *testing.T) {
+	assert := assert.New(t)
+
+	session := "session"
+	accessToken := "accessToken"
+	refreshToken := "refreshToken"
+	idToken := "idToken"
+	authResultType := cognitoidentityprovider.AuthenticationResultType{
+		AccessToken: &accessToken,
+		RefreshToken: &refreshToken,
+		IdToken: &idToken,
+	}
+
+	adminInitAuthOut := cognitoidentityprovider.AdminInitiateAuthOutput{
+		Session: &session,
+		AuthenticationResult: &authResultType,
+	}
+
+	loginResponse := ParseResponse(&adminInitAuthOut)
+
+	assert.NotNil(loginResponse)
+	assert.Equal(loginResponse.Session, session)
+}
 
 func TestParseRequest(t *testing.T) {
 	assert := assert.New(t)
