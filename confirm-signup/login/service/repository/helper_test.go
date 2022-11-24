@@ -34,7 +34,7 @@ func TestParseResponse(t *testing.T) {
 
 func TestParseRequest(t *testing.T) {
 	assert := assert.New(t)
-	body := "{\"email\":\"abc@bc.com\", \"password\": \"12345678\"}"
+	body := "{\"email\":\"abc@bc.com\", \"new_password\": \"12345678\"}"
 
 	requestParameter, err := ParseRequest(&body)
 
@@ -53,7 +53,7 @@ func TestParseRequest(t *testing.T) {
 
 func TestEmptyEmail(t *testing.T) {
 	assert := assert.New(t)
-	body := "{ \"password\": \"12345678\"}"
+	body := "{ \"new_password\": \"12345678\"}"
 
 	requestParameter, err := ParseRequest(&body)
 
@@ -65,7 +65,7 @@ func TestEmptyEmail(t *testing.T) {
 
 func TestInvalidEmail(t *testing.T) {
 	assert := assert.New(t)
-	body := "{\"email\":\"\", \"password\": \"12345678\"}"
+	body := "{\"email\":\"\", \"new_password\": \"12345678\"}"
 
 	requestParameter, err := ParseRequest(&body)
 
@@ -89,7 +89,7 @@ func TestEmptyPassword(t *testing.T) {
 
 func TestInvalidPassword(t *testing.T) {
 	assert := assert.New(t)
-	body := "{\"email\":\"abc@bc.com\", \"password\": \"1234568\"}"
+	body := "{\"email\":\"abc@bc.com\", \"new_password\": \"1234568\"}"
 
 	requestParameter, err := ParseRequest(&body)
 
