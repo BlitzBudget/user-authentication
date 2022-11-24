@@ -16,20 +16,23 @@ func TestParseResponse(t *testing.T) {
 	refreshToken := "refreshToken"
 	idToken := "idToken"
 	authResultType := cognitoidentityprovider.AuthenticationResultType{
-		AccessToken: &accessToken,
+		AccessToken:  &accessToken,
 		RefreshToken: &refreshToken,
-		IdToken: &idToken,
+		IdToken:      &idToken,
 	}
 
 	adminInitAuthOut := cognitoidentityprovider.AdminInitiateAuthOutput{
-		Session: &session,
+		Session:              &session,
 		AuthenticationResult: &authResultType,
 	}
 
 	loginResponse := ParseResponse(&adminInitAuthOut)
 
 	assert.NotNil(loginResponse)
-	assert.Equal(loginResponse.Session, session)
+	assert.Equal(*loginResponse.Session, session)
+	assert.Equal(*loginResponse.AuthenticationResult.AccessToken, accessToken)
+	assert.Equal(*loginResponse.AuthenticationResult.IdToken, idToken)
+	assert.Equal(*loginResponse.AuthenticationResult.RefreshToken, refreshToken)
 }
 
 func TestParseRequest(t *testing.T) {
