@@ -18,7 +18,6 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 		fmt.Printf("    %v: %v\n", key, value)
 	}
 
-	//service.SaveRequest(&request.Body)
 	header := map[string]string{
 		"Access-Control-Allow-Origin":      "*",
 		"Access-Control-Allow-Headers":     "*",
@@ -26,7 +25,7 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 		"Access-Control-Allow-Credentials": "true",
 	}
 
-	err := service.ConfirmSignUp(&request.Body)
+	httpResponse, err := service.ConfirmSignUp(&request.Body)
 	if err != nil {
 		errorMessage := err.Error()
 		errorRespose := models.ErrorHttpResponse{
@@ -35,5 +34,7 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 		errorAsBytes, _ := json.Marshal(errorRespose)
 		return events.APIGatewayProxyResponse{Body: string(errorAsBytes), StatusCode: 500, Headers: header}, nil
 	}
-	return events.APIGatewayProxyResponse{Body: request.Body, StatusCode: 200, Headers: header}, nil
+
+	responseAsBytes, _ := json.Marshal(httpResponse)
+	return events.APIGatewayProxyResponse{Body: string(responseAsBytes), StatusCode: 200, Headers: header}, nil
 }

@@ -1,16 +1,16 @@
 package repository
 
 import (
+	"confirm-signup/login/service/config"
+	"confirm-signup/service/models"
 	"fmt"
-	"login/service/config"
-	"login/service/models"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider/cognitoidentityprovideriface"
 )
 
-func CognitoLogin(cognitoClient cognitoidentityprovideriface.CognitoIdentityProviderAPI, req *models.RequestParameter) (*models.ResponseModel, error) {
+func CognitoLogin(cognitoClient cognitoidentityprovideriface.CognitoIdentityProviderAPI, req *models.RequestParameter) (*models.LoginResponseModel, error) {
 	secretHash := ComputeSecretHash(req.Email)
 
 	authInput := cognitoidentityprovider.AdminInitiateAuthInput{

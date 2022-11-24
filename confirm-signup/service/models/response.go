@@ -10,7 +10,7 @@ type HttpResponse struct {
 	ChallengeName        *string                                           `validate:"required" json:"ChallengeName"`
 }
 
-type ResponseModel struct {
+type LoginResponseModel struct {
 	Session              *string                                           `validate:"required" json:"Session"`
 	AuthenticationResult *cognitoidentityprovider.AuthenticationResultType `validate:"required" json:"AuthenticationResult"`
 	ChallengeName        *string                                           `validate:"required" json:"ChallengeName"`

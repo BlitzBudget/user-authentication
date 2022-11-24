@@ -1,6 +1,9 @@
 package service
 
 import (
+	"confirm-signup/http/helper"
+	"confirm-signup/login/service"
+	"confirm-signup/service/models"
 	"confirm-signup/service/repository"
 	"encoding/json"
 	"fmt"
@@ -9,7 +12,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
 )
 
-func ConfirmSignUp(body *string) error {
+func ConfirmSignUp(body *string) (*models.HttpResponse, error) {
 	// Initialize a session that the SDK will use to load
 	// credentials from the shared credentials file ~/.aws/credentials.
 	sess := session.Must(session.NewSessionWithOptions(session.Options{
@@ -21,15 +24,23 @@ func ConfirmSignUp(body *string) error {
 	requestObject, err := repository.ParseRequest(body)
 	if err != nil {
 		fmt.Printf("Got error marshalling new item: %v", err)
-		return err
+		return nil, err
 	}
 
 	err = repository.CognitoConfirmSignUp(cognitoClient, requestObject)
 	if err != nil {
 		respAsBytes, _ := json.Marshal(err)
-		fmt.Printf("SignupUser: There was an error logging the user %v", string(respAsBytes))
-		return err
+		fmt.Printf("ConfirmSignupUser: There was an error confirming the signup for the user %v", string(respAsBytes))
+		return nil, err
 	}
 
-	return nil
+	loginResponseModel, err := service.LoginUser(requestObject)
+	if err != nil {
+		respAsBytes, _ := json.Marshal(err)
+		fmt.Printf("Loginuser: There was an error logging the user %v", string(respAsBytes))
+		return nil, err
+	}
+
+	httpResponse := helper.ParseResponse(loginResponseModel)
+	return httpResponse, nil
 }

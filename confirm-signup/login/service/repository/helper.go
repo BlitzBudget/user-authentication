@@ -1,21 +1,21 @@
 package repository
 
 import (
+	"confirm-signup/login/service/config"
+	"confirm-signup/login/service/errors"
+	"confirm-signup/service/models"
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"login/service/config"
-	"login/service/errors"
-	"login/service/models"
 	"net/mail"
 
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
 )
 
-func ParseResponse(adminInitiateAuthOutput *cognitoidentityprovider.AdminInitiateAuthOutput) *models.ResponseModel {
-	responseModel := models.ResponseModel{
+func ParseResponse(adminInitiateAuthOutput *cognitoidentityprovider.AdminInitiateAuthOutput) *models.LoginResponseModel {
+	responseModel := models.LoginResponseModel{
 		Session:              adminInitiateAuthOutput.Session,
 		AuthenticationResult: adminInitiateAuthOutput.AuthenticationResult,
 		ChallengeName:        adminInitiateAuthOutput.ChallengeName,

@@ -13,24 +13,27 @@ type mockCognitoClient struct {
 	cognitoidentityprovideriface.CognitoIdentityProviderAPI
 }
 
-func (m *mockCognitoClient) ConfirmSignUp(input *cognitoidentityprovider.ConfirmSignUpInput) (*cognitoidentityprovider.ConfirmSignUpOutput, error) {
-	cogInitiateAuthOutput := cognitoidentityprovider.ConfirmSignUpOutput{}
-	return &cogInitiateAuthOutput, nil
+func (m *mockCognitoClient) AdminInitiateAuth(input *cognitoidentityprovider.AdminInitiateAuthInput) (*cognitoidentityprovider.AdminInitiateAuthOutput, error) {
+	session := "not empty"
+	cogAdminInitiateAuthOutput := cognitoidentityprovider.AdminInitiateAuthOutput{
+		Session: &session,
+	}
+	return &cogAdminInitiateAuthOutput, nil
 }
 
-func TestConfirmSignUp(t *testing.T) {
+func TestCognitoLogin(t *testing.T) {
 	assert := assert.New(t)
 
 	mockCC := &mockCognitoClient{}
 	email := "abc@bc.com"
-	confirmationCode := "123456"
-
+	password := "12345678"
 	req := models.RequestParameter{
-		Email:            &email,
-		ConfirmationCode: &confirmationCode,
+		Email:    &email,
+		Password: &password,
 	}
 
-	err := CognitoConfirmSignUp(mockCC, &req)
+	resp, err := CognitoLogin(mockCC, &req)
 
 	assert.NoError(err)
+	assert.NotNil(resp)
 }
