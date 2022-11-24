@@ -1,7 +1,8 @@
 package repository
 
 import (
-	"confirm-signup/login/service/config"
+	loginConfig "confirm-signup/login/service/config"
+	"confirm-signup/service/config"
 	"confirm-signup/service/models"
 	"fmt"
 
@@ -14,7 +15,7 @@ func CognitoLogin(cognitoClient cognitoidentityprovideriface.CognitoIdentityProv
 	secretHash := ComputeSecretHash(req.Email)
 
 	authInput := cognitoidentityprovider.AdminInitiateAuthInput{
-		AuthFlow: aws.String(config.AuthFlow),
+		AuthFlow: aws.String(loginConfig.AuthFlow),
 		AuthParameters: map[string]*string{
 			"USERNAME":    aws.String(*req.Email),
 			"PASSWORD":    aws.String(*req.Password),

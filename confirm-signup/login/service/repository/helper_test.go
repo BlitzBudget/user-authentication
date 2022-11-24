@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"confirm-signup/login/service/config"
+	"confirm-signup/service/config"
 	"testing"
 
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
