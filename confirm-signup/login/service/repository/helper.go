@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"confirm-signup/login/service/config"
 	"confirm-signup/login/service/errors"
+	"confirm-signup/service/config"
 	"confirm-signup/service/models"
 	"crypto/hmac"
 	"crypto/sha256"
