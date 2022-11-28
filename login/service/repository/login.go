@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider/cognitoidentityprovideriface"
 )
 
-func CognitoLogin(cognitoClient cognitoidentityprovideriface.CognitoIdentityProviderAPI, req *models.RequestParameter) (*string, error) {
+func CognitoLogin(cognitoClient cognitoidentityprovideriface.CognitoIdentityProviderAPI, req *models.RequestParameter) (*models.LoginResponseModel, error) {
 	secretHash := ComputeSecretHash(req.Email)
 
 	authInput := cognitoidentityprovider.AdminInitiateAuthInput{
@@ -26,6 +26,9 @@ func CognitoLogin(cognitoClient cognitoidentityprovideriface.CognitoIdentityProv
 
 	resp, err := cognitoClient.AdminInitiateAuth(&authInput)
 	fmt.Printf("The response of the Initiate Auth is %v", resp)
+	if err != nil {
+		return nil, err
+	}
 
-	return resp.Session, err
+	return ParseResponse(resp), nil
 }
