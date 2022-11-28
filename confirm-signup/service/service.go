@@ -1,6 +1,7 @@
 package service
 
 import (
+	fetchuserService "confirm-signup/fetchuser/service"
 	"confirm-signup/http/helper"
 	"confirm-signup/login/service"
 	"confirm-signup/service/models"
@@ -40,7 +41,15 @@ func ConfirmSignUp(body *string) (*models.HttpResponse, error) {
 		fmt.Printf("Loginuser: There was an error logging the user %v", string(respAsBytes))
 		return nil, err
 	}
-
 	httpResponse := helper.ParseResponse(loginResponseModel)
+
+	fetchUserResponse, err := fetchuserService.GetUser(loginResponseModel.AuthenticationResult.AccessToken, cognitoClient)
+	if err != nil {
+		respAsBytes, _ := json.Marshal(err)
+		fmt.Printf("FetchUser: There was an error fetching the user attributes %v", string(respAsBytes))
+		return nil, err
+	}
+	httpResponse = helper.ParseFetchUserResponse(fetchUserResponse, httpResponse)
+
 	return httpResponse, nil
 }
