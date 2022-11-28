@@ -6,6 +6,6 @@ type RequestParameter struct {
 }
 
 type UserAttribute struct {
-	FirstName     *string `validate:"required" json:"name"`
+	FirstName     *string `validate:"required" json:"first_name"`
 	LastName *string `validate:"required" json:"last_name"`
 }
