@@ -20,7 +20,7 @@ func CognitoConfirmForgotPassword(cognitoClient cognitoidentityprovideriface.Cog
 	}
 
 	cfgOutput, err := cognitoClient.ConfirmForgotPassword(&confirmForgotPasswordInput)
-	fmt.Printf("The response of the Signup is %v", cfgOutput.String())
+	fmt.Printf("The response of the Signup is %v \n", cfgOutput.String())
 
 	return err
 }

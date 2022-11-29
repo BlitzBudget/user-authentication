@@ -24,13 +24,13 @@ func LoginUser(body *string) (*models.HttpResponse, error) {
 
 	mo, err := repository.ParseRequest(body)
 	if err != nil {
-		fmt.Printf("Got error marshalling new item: %v", err)
+		fmt.Printf("Got error marshalling new item: %v \n", err)
 		return nil, err
 	}
 
 	loginResponseModel, err := repository.CognitoLogin(cognitoClient, mo)
 	if err != nil {
-		fmt.Printf("LoginUser: There was an error logging the user %v", err)
+		fmt.Printf("LoginUser: There was an error logging the user %v \n", err)
 		return nil, err
 	}
 	httpResponse := helper.ParseResponse(loginResponseModel)
@@ -38,7 +38,7 @@ func LoginUser(body *string) (*models.HttpResponse, error) {
 	fetchUserResponse, err := fetchuserService.GetUser(loginResponseModel.AuthenticationResult.AccessToken, cognitoClient)
 	if err != nil {
 		respAsBytes, _ := json.Marshal(err)
-		fmt.Printf("FetchUser: There was an error fetching the user attributes %v", string(respAsBytes))
+		fmt.Printf("FetchUser: There was an error fetching the user attributes %v \n", string(respAsBytes))
 		return nil, err
 	}
 	httpResponse = helper.ParseFetchUserResponse(fetchUserResponse, httpResponse)
@@ -48,7 +48,7 @@ func LoginUser(body *string) (*models.HttpResponse, error) {
 	walletResponseItems, err := fetchWalletService.FetchWallet(userIdInCognito, sess)
 	if err != nil {
 		respAsBytes, _ := json.Marshal(err)
-		fmt.Printf("AddNewWallet: There was an error adding the wallet %v", string(respAsBytes))
+		fmt.Printf("AddNewWallet: There was an error adding the wallet %v \n", string(respAsBytes))
 		return nil, err
 	}
 	httpResponse = helper.ParseWalletResponse(walletResponseItems, httpResponse)

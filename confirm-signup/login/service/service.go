@@ -20,7 +20,7 @@ func LoginUser(requestObject *models.RequestParameter) (*models.LoginResponseMod
 
 	resp, err := repository.CognitoLogin(cognitoClient, requestObject)
 	if err != nil {
-		fmt.Printf("LoginUser: There was an error logging the user %v", err)
+		fmt.Printf("LoginUser: There was an error logging the user %v \n", err)
 		return nil, err
 	}
 

@@ -25,21 +25,21 @@ func ConfirmSignUp(body *string, locale *string) (*models.HttpResponse, error) {
 
 	requestObject, err := repository.ParseRequest(body)
 	if err != nil {
-		fmt.Printf("Got error marshalling new item: %v", err)
+		fmt.Printf("Got error marshalling new item: %v \n", err)
 		return nil, err
 	}
 
 	err = repository.CognitoConfirmSignUp(cognitoClient, requestObject)
 	if err != nil {
 		respAsBytes, _ := json.Marshal(err)
-		fmt.Printf("ConfirmSignupUser: There was an error confirming the signup for the user %v", string(respAsBytes))
+		fmt.Printf("ConfirmSignupUser: There was an error confirming the signup for the user %v \n", string(respAsBytes))
 		return nil, err
 	}
 
 	loginResponseModel, err := service.LoginUser(requestObject)
 	if err != nil {
 		respAsBytes, _ := json.Marshal(err)
-		fmt.Printf("Loginuser: There was an error logging the user %v", string(respAsBytes))
+		fmt.Printf("Loginuser: There was an error logging the user %v \n", string(respAsBytes))
 		return nil, err
 	}
 	httpResponse := helper.ParseResponse(loginResponseModel)
@@ -47,7 +47,7 @@ func ConfirmSignUp(body *string, locale *string) (*models.HttpResponse, error) {
 	fetchUserResponse, err := fetchuserService.GetUser(loginResponseModel.AuthenticationResult.AccessToken, cognitoClient)
 	if err != nil {
 		respAsBytes, _ := json.Marshal(err)
-		fmt.Printf("FetchUser: There was an error fetching the user attributes %v", string(respAsBytes))
+		fmt.Printf("FetchUser: There was an error fetching the user attributes %v \n", string(respAsBytes))
 		return nil, err
 	}
 	httpResponse = helper.ParseFetchUserResponse(fetchUserResponse, httpResponse)
@@ -56,7 +56,7 @@ func ConfirmSignUp(body *string, locale *string) (*models.HttpResponse, error) {
 	err = addWalletService.AddNewWallet(locale, sess, userIdInCognito)
 	if err != nil {
 		respAsBytes, _ := json.Marshal(err)
-		fmt.Printf("AddNewWallet: There was an error adding the wallet %v", string(respAsBytes))
+		fmt.Printf("AddNewWallet: There was an error adding the wallet %v \n", string(respAsBytes))
 		return nil, err
 	}
 

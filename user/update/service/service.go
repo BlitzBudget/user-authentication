@@ -20,14 +20,14 @@ func UpdateUserAttributes(body *string) error {
 
 	requestObject, err := repository.ParseRequest(body)
 	if err != nil {
-		fmt.Printf("Got error marshalling new item: %v", err)
+		fmt.Printf("Got error marshalling new item: %v \n", err)
 		return err
 	}
 
 	err = repository.CognitoUpdateUserAttributes(cognitoClient, requestObject)
 	if err != nil {
 		respAsBytes, _ := json.Marshal(err)
-		fmt.Printf("SignupUser: There was an error logging the user %v", string(respAsBytes))
+		fmt.Printf("SignupUser: There was an error logging the user %v \n", string(respAsBytes))
 		return err
 	}
 

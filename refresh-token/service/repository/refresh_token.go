@@ -22,7 +22,7 @@ func CognitoInitiateAuth(cognitoClient cognitoidentityprovideriface.CognitoIdent
 	}
 
 	cfgOutput, err := cognitoClient.InitiateAuth(&initiateAuthInput)
-	fmt.Printf("The response of the Refresh Token is %v", cfgOutput.String())
+	fmt.Printf("The response of the Refresh Token is %v \n", cfgOutput.String())
 
 	return ParseResponse(cfgOutput, err)
 }

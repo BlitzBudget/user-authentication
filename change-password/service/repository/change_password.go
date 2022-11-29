@@ -18,7 +18,7 @@ func CognitoChangePassword(cognitoClient cognitoidentityprovideriface.CognitoIde
 
 	fpOutput, err := cognitoClient.ChangePassword(&fpInput)
 	respAsBytes, _ := json.Marshal(fpOutput)
-	fmt.Printf("The response of the Forgot Password is %v", string(respAsBytes))
+	fmt.Printf("The response of the Forgot Password is %v \n", string(respAsBytes))
 
 	return err
 }

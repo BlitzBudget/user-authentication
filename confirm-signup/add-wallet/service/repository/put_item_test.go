@@ -52,7 +52,7 @@ func TestPutItem(t *testing.T) {
 
 	err := CreateItem(av, mockSvc)
 	if err != nil {
-		t.Errorf("PutItem() error = %v", err)
+		t.Errorf("PutItem() error = %v \n", err)
 		return
 	}
 

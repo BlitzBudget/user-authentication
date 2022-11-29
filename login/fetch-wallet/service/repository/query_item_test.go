@@ -44,7 +44,7 @@ func TestQueryItem(t *testing.T) {
 
 	queryOutput, err := QueryItem(&userId, mockSvc)
 	if err != nil {
-		t.Errorf("QueryItem() error = %v", err)
+		t.Errorf("QueryItem() error = %v \n", err)
 		return
 	}
 

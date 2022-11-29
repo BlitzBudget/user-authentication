@@ -17,7 +17,7 @@ func CognitoGetUser(cognitoClient cognitoidentityprovideriface.CognitoIdentityPr
 
 	fpOutput, err := cognitoClient.GetUser(&fpInput)
 	respAsBytes, _ := json.Marshal(fpOutput)
-	fmt.Printf("The response of the Forgot Password is %v", string(respAsBytes))
+	fmt.Printf("The response of the Forgot Password is %v \n", string(respAsBytes))
 
 	if err != nil {
 		return nil, err

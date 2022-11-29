@@ -23,7 +23,7 @@ func CognitoConfirmMFA(cognitoClient cognitoidentityprovideriface.CognitoIdentit
 	}
 
 	cfgOutput, err := cognitoClient.RespondToAuthChallenge(&ConfirmMFAInput)
-	fmt.Printf("The response of the Signup is %v", cfgOutput.String())
+	fmt.Printf("The response of the Signup is %v \n", cfgOutput.String())
 
 	return ParseResponse(cfgOutput, err)
 }

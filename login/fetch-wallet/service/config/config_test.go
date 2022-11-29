@@ -15,7 +15,7 @@ func TestConfig(t *testing.T) {
 	TableName = os.Getenv("TABLE_NAME")
 
 	if TableName != tableName {
-		t.Errorf("QueryParameter: TableName do not match, got = %v, want = %v", TableName, tableName)
+		t.Errorf("QueryParameter: TableName do not match, got = %v, want = %v \n", TableName, tableName)
 		return
 	}
 
