@@ -2,6 +2,7 @@ package repository
 
 import (
 	"confirm-signup/add-wallet/service/config"
+	"fmt"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -14,6 +15,8 @@ func CreateItem(av map[string]*dynamodb.AttributeValue, svc dynamodbiface.Dynamo
 		TableName: aws.String(config.TableName),
 	}
 
-	_, err := svc.PutItem(input)
+	ptOutput, err := svc.PutItem(input)
+	fmt.Printf("CreateItem:: The consumed capacity is %v \n", ptOutput)
+
 	return err
 }

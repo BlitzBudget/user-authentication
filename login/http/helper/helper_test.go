@@ -2,6 +2,7 @@ package helper
 
 import (
 	fetchuserModel "login/fetchuser/service/models"
+	fetchWalletModel "login/fetch-wallet/service/models"
 	"login/service/models"
 	"testing"
 
@@ -51,4 +52,23 @@ func TestParseFetchUserResponse(t *testing.T) {
 
 	httpParsedResponse := ParseFetchUserResponse(&fetchUserModel, &httpResponse)
 	assert.Equal(httpParsedResponse.UserAttributes, fetchUserModel.UserAttributes)
+}
+
+func TestParseWalletResponse(t *testing.T) {
+	assert := assert.New(t)
+
+	pk := "pk"
+	sk := "sk"
+	walletItems := fetchWalletModel.WalletResponseItems{}
+	walletItem := fetchWalletModel.WalletResponseItem{
+		Pk: &pk,
+		Sk: &sk,
+	}
+
+	walletItems = append(walletItems, &walletItem)
+	httpResponse := models.HttpResponse{}
+
+	httpResponseItem := ParseWalletResponse(walletItems, &httpResponse)
+
+	assert.Equal(httpResponseItem.Wallet[0], walletItems[0])
 }

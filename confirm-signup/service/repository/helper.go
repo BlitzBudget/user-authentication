@@ -65,3 +65,14 @@ func ComputeSecretHash(username *string) string {
 
 	return base64.StdEncoding.EncodeToString(mac.Sum(nil))
 }
+
+func FetchUserIDfromUserAttributes(userAttributes []*models.UserAttribute) *string {
+	var userIdInCognito string
+	for _, u := range userAttributes {
+		if *u.Name == config.UserIdInCognito {
+			userIdInCognito = *u.Value
+		}
+	}
+
+	return &userIdInCognito
+}

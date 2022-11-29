@@ -2,6 +2,7 @@ package repository
 
 import (
 	"confirm-signup/service/config"
+	"confirm-signup/service/models"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -76,4 +77,22 @@ func TestInvalidEmail(t *testing.T) {
 	assert.Error(err)
 	assert.Nil(requestParameter)
 	assert.Equal(err.Error(), "the email entered is invalid")
+}
+
+func TestFetchUserIDfromUserAttributes(t *testing.T) {
+	assert := assert.New(t)
+
+	name := config.UserIdInCognito
+	value := "cognitoId"
+
+	userAttributes := []*models.UserAttribute{
+		{
+			Name:  &name,
+			Value: &value,
+		},
+	}
+
+	userIdInCognito := FetchUserIDfromUserAttributes(userAttributes)
+
+	assert.Equal(*userIdInCognito, value)
 }
