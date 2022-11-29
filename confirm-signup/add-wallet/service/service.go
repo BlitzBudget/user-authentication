@@ -1,6 +1,7 @@
 package service
 
 import (
+	"confirm-signup/add-wallet/locale"
 	"confirm-signup/add-wallet/service/repository"
 	"fmt"
 
@@ -8,20 +9,15 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
-func SaveRequest(body *string) {
-	// snippet-start:[dynamodb.go.create_item.session]
-	// Initialize a session that the SDK will use to load
-	// credentials from the shared credentials file ~/.aws/credentials
-	// and region from the shared configuration file ~/.aws/config.
-	sess := session.Must(session.NewSessionWithOptions(session.Options{
-		SharedConfigState: session.SharedConfigEnable,
-	}))
+func AddNewWallet(localeHeader *string, sess *session.Session, userIdInCognito *string) error {
 
 	// Create DynamoDB client
 	svc := dynamodb.New(sess)
-	// snippet-end:[dynamodb.go.create_item.session]
 
-	av, err := repository.AttributeBuilder(body)
+	currencyName := locale.ConvertToCurrencyName(localeHeader)
+	currencySymbol := locale.ConvertToSymbol(currencyName)
+
+	av, err := repository.AttributeBuilder(currencyName, currencySymbol, userIdInCognito)
 	if err != nil {
 		panic(fmt.Sprintf("SaveRequest: Got error marshalling new item: %v", err))
 	}
@@ -32,4 +28,5 @@ func SaveRequest(body *string) {
 	}
 
 	fmt.Println("Successfully added the item!")
+	return err
 }
