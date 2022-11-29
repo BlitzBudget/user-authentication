@@ -18,14 +18,14 @@ func FetchWallet(userIdInCognito *string, sess *session.Session) ([]*models.Wall
 	var queryOutput *dynamodb.QueryOutput
 	queryOutput, err := repository.QueryItem(userIdInCognito, svc)
 	if err != nil {
-		log.Fatalf("Got error calling PutItem: %v", err)
+		log.Fatalf("Got error calling PutItem: %v \n", err)
 		return nil, err
 	}
 
 	var walletResponseItems []*models.WalletResponseItem
 	walletResponseItems, err = repository.ParseResponse(queryOutput)
 	if err != nil {
-		log.Fatalf("Got error parsing Response Item: %v", err)
+		log.Fatalf("Got error parsing Response Item: %v \n", err)
 		return nil, err
 	}
 

@@ -14,7 +14,7 @@ func GetUser(accessToken *string, cognitoClient *cognitoidentityprovider.Cognito
 	response, err := repository.CognitoGetUser(cognitoClient, accessToken)
 	if err != nil {
 		respAsBytes, _ := json.Marshal(err)
-		fmt.Printf("SignupUser: There was an error logging the user %v", string(respAsBytes))
+		fmt.Printf("SignupUser: There was an error logging the user %v \n", string(respAsBytes))
 		return nil, err
 	}
 

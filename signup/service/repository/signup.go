@@ -58,7 +58,7 @@ func CognitoSignup(cognitoClient cognitoidentityprovideriface.CognitoIdentityPro
 
 	resp, err := cognitoClient.SignUp(&authInput)
 	respAsBytes, _ := json.Marshal(resp)
-	fmt.Printf("The response of the Signup is %v", string(respAsBytes))
+	fmt.Printf("The response of the Signup is %v \n", string(respAsBytes))
 
 	return err
 }

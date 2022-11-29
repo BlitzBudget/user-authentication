@@ -23,7 +23,7 @@ func CognitoUpdateUserAttributes(cognitoClient cognitoidentityprovideriface.Cogn
 
 	fpOutput, err := cognitoClient.UpdateUserAttributes(&fpInput)
 	respAsBytes, _ := json.Marshal(fpOutput)
-	fmt.Printf("The response of the Forgot Password is %v", string(respAsBytes))
+	fmt.Printf("The response of the Forgot Password is %v \n", string(respAsBytes))
 
 	return err
 }

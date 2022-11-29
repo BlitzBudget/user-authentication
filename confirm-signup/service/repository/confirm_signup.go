@@ -19,7 +19,7 @@ func CognitoConfirmSignUp(cognitoClient cognitoidentityprovideriface.CognitoIden
 	}
 
 	cfgOutput, err := cognitoClient.ConfirmSignUp(&ConfirmSignUpInput)
-	fmt.Printf("The response of the Signup is %v", cfgOutput.String())
+	fmt.Printf("The response of the Signup is %v \n", cfgOutput.String())
 
 	return err
 }

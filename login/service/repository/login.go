@@ -25,7 +25,7 @@ func CognitoLogin(cognitoClient cognitoidentityprovideriface.CognitoIdentityProv
 	}
 
 	resp, err := cognitoClient.AdminInitiateAuth(&authInput)
-	fmt.Printf("The response of the Initiate Auth is %v", resp)
+	fmt.Printf("The response of the Initiate Auth is %v \n", resp)
 	if err != nil {
 		return nil, err
 	}

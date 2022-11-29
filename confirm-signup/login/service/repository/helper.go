@@ -29,7 +29,7 @@ func ParseRequest(body *string) (*models.RequestParameter, error) {
 	err := json.Unmarshal([]byte(*body), &requestParamater)
 
 	if err != nil {
-		fmt.Printf("Repository: There was an error marshalling the bytes to struct: %v", err.Error())
+		fmt.Printf("Repository: There was an error marshalling the bytes to struct: %v \n", err.Error())
 		return nil, err
 	}
 

@@ -16,7 +16,7 @@ func CreateItem(av map[string]*dynamodb.AttributeValue, svc dynamodbiface.Dynamo
 	}
 
 	ptOutput, err := svc.PutItem(input)
-	fmt.Printf("CreateItem:: The consumed capacity is %v \n", ptOutput)
+	fmt.Printf("CreateItem:: The consumed capacity is %v \n", ptOutput.ConsumedCapacity)
 
 	return err
 }

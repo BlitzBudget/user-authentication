@@ -20,7 +20,7 @@ func CognitoResendConfirmationCode(cognitoClient cognitoidentityprovideriface.Co
 
 	rccOutput, err := cognitoClient.ResendConfirmationCode(&rccInput)
 	respAsBytes, _ := json.Marshal(rccOutput)
-	fmt.Printf("The response of the Resend Confirmation Code is %v", string(respAsBytes))
+	fmt.Printf("The response of the Resend Confirmation Code is %v \n", string(respAsBytes))
 
 	return err
 }

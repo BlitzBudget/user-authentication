@@ -19,12 +19,12 @@ func AddNewWallet(localeHeader *string, sess *session.Session, userIdInCognito *
 
 	av, err := repository.AttributeBuilder(currencyName, currencySymbol, userIdInCognito)
 	if err != nil {
-		panic(fmt.Sprintf("SaveRequest: Got error marshalling new item: %v", err))
+		panic(fmt.Sprintf("SaveRequest: Got error marshalling new item: %v \n", err))
 	}
 
 	err = repository.CreateItem(av, svc)
 	if err != nil {
-		panic(fmt.Sprintf("SaveRequest: Got error calling PutItem: %v", err))
+		panic(fmt.Sprintf("SaveRequest: Got error calling PutItem: %v \n", err))
 	}
 
 	fmt.Println("Successfully added the item!")

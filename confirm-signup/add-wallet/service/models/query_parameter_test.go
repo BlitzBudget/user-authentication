@@ -17,37 +17,37 @@ func TestQueryParameter(t *testing.T) {
 	err := json.Unmarshal([]byte(body), &queryParameter)
 
 	if *queryParameter.Pk != pk {
-		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v", *queryParameter.Pk, pk)
+		t.Errorf("QueryParameter: PK do not match, got = %v, want = %v \n", *queryParameter.Pk, pk)
 		return
 	}
 
 	if queryParameter.Sk != sk {
-		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v", queryParameter.Sk, sk)
+		t.Errorf("QueryParameter: SK do not match, got = %v, want = %v \n", queryParameter.Sk, sk)
 		return
 	}
 
 	if *queryParameter.CreationDate != creationDate {
-		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v", queryParameter.CreationDate, creationDate)
+		t.Errorf("QueryParameter: Creation Date do not match, got = %v, want = %v \n", queryParameter.CreationDate, creationDate)
 		return
 	}
 
 	if *queryParameter.UpdatedDate != updatedDate {
-		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v", queryParameter.UpdatedDate, updatedDate)
+		t.Errorf("QueryParameter: Updated Date do not match, got = %v, want = %v \n", queryParameter.UpdatedDate, updatedDate)
 		return
 	}
 
 	if *queryParameter.Currency != currency {
-		t.Errorf("QueryParameter: Currency do not match, got = %v, want = %v", *queryParameter.Currency, currency)
+		t.Errorf("QueryParameter: Currency do not match, got = %v, want = %v \n", *queryParameter.Currency, currency)
 		return
 	}
 
 	if *queryParameter.Name != name {
-		t.Errorf("QueryParameter: Name do not match, got = %v, want = %v", *queryParameter.Name, name)
+		t.Errorf("QueryParameter: Name do not match, got = %v, want = %v \n", *queryParameter.Name, name)
 		return
 	}
 
 	if err != nil {
-		t.Errorf("QueryParameter Struct has an error = %v", err)
+		t.Errorf("QueryParameter Struct has an error = %v \n", err)
 		return
 	}
 }
