@@ -2,6 +2,7 @@ package repository
 
 import (
 	"login/service/config"
+	"login/service/models"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -84,4 +85,22 @@ func TestComputeHashMap(t *testing.T) {
 
 	assert.NotNil(hashedSecret)
 	assert.Equal("aMIWMCPgXsRusULKA/OJ1AfztPK2JgBykLKnCZ1k/yQ=", hashedSecret)
+}
+
+func TestFetchUserIDfromUserAttributes(t *testing.T) {
+	assert := assert.New(t)
+
+	name := config.UserIdInCognito
+	value := "cognitoId"
+
+	userAttributes := []*models.UserAttribute{
+		{
+			Name:  &name,
+			Value: &value,
+		},
+	}
+
+	userIdInCognito := FetchUserIDfromUserAttributes(userAttributes)
+
+	assert.Equal(*userIdInCognito, value)
 }

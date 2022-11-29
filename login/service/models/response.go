@@ -1,6 +1,10 @@
 package models
 
-import "github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
+import (
+	fetchWalletModels "login/fetch-wallet/service/models"
+
+	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
+)
 
 type HttpResponse struct {
 	StatusCode           *int                                              `validate:"required" json:"statusCode"`
@@ -9,6 +13,7 @@ type HttpResponse struct {
 	AuthenticationResult *cognitoidentityprovider.AuthenticationResultType `validate:"required" json:"AuthenticationResult"`
 	ChallengeName        *string                                           `validate:"required" json:"ChallengeName"`
 	UserAttributes       []*UserAttribute                                  `validate:"required" json:"UserAttributes"`
+	Wallet               []*fetchWalletModels.WalletResponseItem           `validate:"required" json:"Wallet"`
 }
 
 type LoginResponseModel struct {

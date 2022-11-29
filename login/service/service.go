@@ -3,6 +3,7 @@ package service
 import (
 	"encoding/json"
 	"fmt"
+	fetchWalletService "login/fetch-wallet/service"
 	fetchuserService "login/fetchuser/service"
 	"login/http/helper"
 	"login/service/models"
@@ -42,7 +43,15 @@ func LoginUser(body *string) (*models.HttpResponse, error) {
 	}
 	httpResponse = helper.ParseFetchUserResponse(fetchUserResponse, httpResponse)
 
-	// TODO Fetch all wallet
+	// Fetch all wallet
+	userIdInCognito := repository.FetchUserIDfromUserAttributes(fetchUserResponse.UserAttributes)
+	walletResponseItems, err := fetchWalletService.FetchWallet(userIdInCognito, sess)
+	if err != nil {
+		respAsBytes, _ := json.Marshal(err)
+		fmt.Printf("AddNewWallet: There was an error adding the wallet %v", string(respAsBytes))
+		return nil, err
+	}
+	httpResponse = helper.ParseWalletResponse(walletResponseItems, httpResponse)
 
 	return httpResponse, nil
 }

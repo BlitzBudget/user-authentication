@@ -76,3 +76,14 @@ func ParseResponse(adminInitiateAuthOutput *cognitoidentityprovider.AdminInitiat
 
 	return &responseModel
 }
+
+func FetchUserIDfromUserAttributes(userAttributes []*models.UserAttribute) *string {
+	var userIdInCognito string
+	for _, u := range userAttributes {
+		if *u.Name == config.UserIdInCognito {
+			userIdInCognito = *u.Value
+		}
+	}
+
+	return &userIdInCognito
+}
