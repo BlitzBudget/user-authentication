@@ -3,6 +3,7 @@ package repository
 import (
 	"confirm-signup/add-wallet/service/config"
 	"confirm-signup/add-wallet/service/models"
+	"encoding/json"
 	"fmt"
 	"time"
 
@@ -22,6 +23,8 @@ func AttributeBuilder(currencyName *string, currencySymbol *string, userIdInCogn
 	}
 
 	av, err := dynamodbattribute.MarshalMap(queryParameter)
-	fmt.Printf("marshalled struct: %+v", av)
+
+	responseAsBytes, _ := json.Marshal(av)
+	fmt.Printf("addWallet:: AttributeBuilder:: marshalled struct: %+v \n", string(responseAsBytes))
 	return av, err
 }
