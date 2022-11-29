@@ -51,5 +51,7 @@ func ConfirmSignUp(body *string) (*models.HttpResponse, error) {
 	}
 	httpResponse = helper.ParseFetchUserResponse(fetchUserResponse, httpResponse)
 
+	// TODO add a wallet
+
 	return httpResponse, nil
 }

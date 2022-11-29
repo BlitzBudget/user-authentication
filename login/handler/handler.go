@@ -24,7 +24,7 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 		"Access-Control-Allow-Methods":     "OPTIONS,POST",
 		"Access-Control-Allow-Credentials": "true",
 	}
-	session, err := service.LoginUser(&request.Body)
+	httpResponse, err := service.LoginUser(&request.Body)
 
 	if err != nil {
 		errorMessage := err.Error()
@@ -35,11 +35,6 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 		return events.APIGatewayProxyResponse{Body: string(errorAsBytes), StatusCode: 500, Headers: header}, nil
 	}
 
-	message := "Successfuly sent an SMS to your mobile number"
-	response := models.HttpResponse{
-		Message: &message,
-		Session: session,
-	}
-	respAsBytes, _ := json.Marshal(response)
+	respAsBytes, _ := json.Marshal(httpResponse)
 	return events.APIGatewayProxyResponse{Body: string(respAsBytes), StatusCode: 200, Headers: header}, nil
 }

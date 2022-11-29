@@ -10,6 +10,8 @@ import (
 	"login/service/errors"
 	"login/service/models"
 	"net/mail"
+
+	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
 )
 
 func ParseRequest(body *string) (*models.RequestParameter, error) {
@@ -63,4 +65,14 @@ func ComputeSecretHash(username *string) string {
 	mac.Write([]byte(*username + config.ClientId))
 
 	return base64.StdEncoding.EncodeToString(mac.Sum(nil))
+}
+
+func ParseResponse(adminInitiateAuthOutput *cognitoidentityprovider.AdminInitiateAuthOutput) *models.LoginResponseModel {
+	responseModel := models.LoginResponseModel{
+		Session:              adminInitiateAuthOutput.Session,
+		AuthenticationResult: adminInitiateAuthOutput.AuthenticationResult,
+		ChallengeName:        adminInitiateAuthOutput.ChallengeName,
+	}
+
+	return &responseModel
 }

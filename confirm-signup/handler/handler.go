@@ -16,6 +16,10 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 	fmt.Println("Headers:")
 	for key, value := range request.Headers {
 		fmt.Printf("    %v: %v\n", key, value)
+
+		if key == "CloudFront-Viewer-Country" {
+			fmt.Printf("The Cloud front local selected is %v \n", value)
+		}
 	}
 
 	header := map[string]string{
