@@ -1,0 +1,1431 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "[Production] User Authentication Stack Resources",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "0b954295-1636-43a1-a99b-752c9ebaab88": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "0bff8fec-dbd9-4807-bbd4-f35119e28292": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "ca2a5941-6323-4aa3-b5d9-449d0cec0c48": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 290
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "899c7a24-27a3-4f8b-b7bb-2fe6e800b974": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 290
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "ee7f05fb-28f7-494b-ab77-fd281a2ea5dc": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 420
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "877e29f3-66a7-4eb9-b379-d6729b345297": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 420
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "d8514b58-1544-4db7-89b2-d71d602f6abe": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 540
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "fb5b8f88-2a98-4b0b-93bc-a486c36a6271": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 540
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "c3fb4091-3d15-45ea-a08a-53ce72f9847b": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 660
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "174a93f2-1018-4fad-889a-5fb04c176623": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 660
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "0f6fcaf8-2811-4972-a49c-58e3547f1410": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 790
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "eafea074-da68-4fd1-bfa9-b09416a9841a": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 790
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "22a598ba-48fb-4cd8-8d5f-5615d977a297": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 920
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "6e24753b-f223-4b27-a736-672fa33d3aa5": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 920
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "1848dd20-80d4-4a7c-9b49-a176ef3246ba": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 1040
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "ba7264e3-0373-43a7-a79b-2af51f0160aa": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 1040
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "58d6f04e-f5c7-4303-9cb3-4c0cbbc0d2bc": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 1160
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "c1a340fd-1d77-4729-a06e-6282f91c039e": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 1160
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "8e8e7cd0-41d6-41ee-bd7d-ae69e60e9875": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 1290
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "e25f4130-d698-4f07-a6be-db7ec3d25278": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 1290
+                },
+                "z": 0,
+                "embeds": []
+            }
+        }
+    },
+    "Resources": {
+        "changePasswordRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "RoleName": "changePasswordRole",
+                "Description": "[Production] Change Password Role For User Authenitcation",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/changePassword:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0bff8fec-dbd9-4807-bbd4-f35119e28292"
+                }
+            }
+        },
+        "changePassword": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "Description": "[Production] Change Password For User Authentication",
+                "FunctionName": "changePassword",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "USER_POOL_ID": "eu-west-1_w9rXcx1Io"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "changePasswordRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0b954295-1636-43a1-a99b-752c9ebaab88"
+                }
+            }
+        },
+        "confirmForgotPassword": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "Description": "[Production] Confirm Forgot Password For User Authentication",
+                "FunctionName": "confirmForgotPassword",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientId}}",
+                        "CLIENT_SECRET": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientSecret}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "confirmForgotPasswordRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ca2a5941-6323-4aa3-b5d9-449d0cec0c48"
+                }
+            }
+        },
+        "confirmForgotPasswordRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "RoleName": "confirmForgotPasswordRole",
+                "Description": "[Production] Confirm Forgot Password Role For User Authenitcation",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/confirmForgotPassword:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "899c7a24-27a3-4f8b-b7bb-2fe6e800b974"
+                }
+            }
+        },
+        "confirmSignup": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "Description": "[Production] Confirm Signup For User Authentication",
+                "FunctionName": "confirmSignup",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientId}}",
+                        "CLIENT_SECRET": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientSecret}}",
+                        "USERPOOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}",
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "confirmSignupRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ee7f05fb-28f7-494b-ab77-fd281a2ea5dc"
+                }
+            }
+        },
+        "confirmSignupRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "RoleName": "confirmSignupRole",
+                "Description": "[Production] Confirm Signup Role For User Authenitcation",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/confirmSignup:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "cognito-idp:AdminInitiateAuth",
+                                    "Resource": "arn:aws:cognito-idp:eu-west-1:064559090307:userpool/eu-west-1_cjfC8qNiB"
+                                }
+                            ]
+                        },
+                        "PolicyName": "cognitoAdminInitiateAuth"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "dynamodb:PutItem",
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "putItemBlitzBudgetTable"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "877e29f3-66a7-4eb9-b379-d6729b345297"
+                }
+            }
+        },
+        "forgotPassword": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "Description": "[Production] Forgot Password For User Authentication",
+                "FunctionName": "forgotPassword",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientId}}",
+                        "CLIENT_SECRET": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientSecret}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "forgotPasswordRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "d8514b58-1544-4db7-89b2-d71d602f6abe"
+                }
+            }
+        },
+        "forgotPasswordRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "RoleName": "forgotPassword-role-uf7s75mn",
+                "Description": "[Production] Forgot Password Role For User Authenitcation",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/forgotPassword:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "fb5b8f88-2a98-4b0b-93bc-a486c36a6271"
+                }
+            }
+        },
+        "signin": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "Description": "[Production] Login For User Authentication",
+                "FunctionName": "signin",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "COGNITO_CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientId}}",
+                        "COGNITO_CLIENT_SECRET": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientSecret}}",
+                        "COGNITO_USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}",
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "loginRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "c3fb4091-3d15-45ea-a08a-53ce72f9847b"
+                }
+            }
+        },
+        "loginRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "RoleName": "loginRole",
+                "Description": "[Production] Signin Role For User Authenitcation",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/signin:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "cognito-idp:AdminInitiateAuth",
+                                    "Resource": "arn:aws:cognito-idp:eu-west-1:064559090307:userpool/eu-west-1_cjfC8qNiB"
+                                }
+                            ]
+                        },
+                        "PolicyName": "adminInitiateAuth"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:Query"
+                                    ],
+                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                }
+                            ]
+                        },
+                        "PolicyName": "queryBlitzBudgetItem"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "174a93f2-1018-4fad-889a-5fb04c176623"
+                }
+            }
+        },
+        "refreshToken": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "Description": "[Production] Refresh Token For User Authentication",
+                "FunctionName": "refreshToken",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientId}}",
+                        "CLIENT_SECRET": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientSecret}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "refreshTokenRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0f6fcaf8-2811-4972-a49c-58e3547f1410"
+                }
+            }
+        },
+        "refreshTokenRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "RoleName": "refreshTokenRole",
+                "Description": "[Production] Refresh Token Role For User Authenitcation",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/refreshToken:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "eafea074-da68-4fd1-bfa9-b09416a9841a"
+                }
+            }
+        },
+        "resendConfirmationCode": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "Description": "[Production] Resend Confirmation Code For User Authentication",
+                "FunctionName": "resendConfirmationCode",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientId}}",
+                        "CLIENT_SECRET": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientSecret}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "resendConfirmationCodeRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "22a598ba-48fb-4cd8-8d5f-5615d977a297"
+                }
+            }
+        },
+        "resendConfirmationCodeRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "RoleName": "resendConfirmationCodeRole",
+                "Description": "[Production] Resend Confirmation Code Role For User Authenitcation",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/resendConfirmationCode:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6e24753b-f223-4b27-a736-672fa33d3aa5"
+                }
+            }
+        },
+        "signup": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "Description": "[Production] Signup For User Authentication",
+                "FunctionName": "signup",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "COGNITO_CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientId}}",
+                        "COGNITO_CLIENT_SECRET": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientSecret}}",
+                        "COGNITO_USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}",
+                        "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
+                        "AWS_LAMBDA_REGION": "eu-west-1"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "signupRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "1848dd20-80d4-4a7c-9b49-a176ef3246ba"
+                }
+            }
+        },
+        "signupRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "RoleName": "signupRole",
+                "Description": "[Production] Signup Role For User Authenitcation",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/signup:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ba7264e3-0373-43a7-a79b-2af51f0160aa"
+                }
+            }
+        },
+        "getUserAttributes": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "Description": "[Production] Get User Attributes For User Authentication",
+                "FunctionName": "getUserAttributes",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "getUserAttributesRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "58d6f04e-f5c7-4303-9cb3-4c0cbbc0d2bc"
+                }
+            }
+        },
+        "getUserAttributesRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "RoleName": "getUserAttributes-role-gdg2n5qt",
+                "Description": "[Production] Get User Attributes Role For User Authenitcation",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/getUserAttributes:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "c1a340fd-1d77-4729-a06e-6282f91c039e"
+                }
+            }
+        },
+        "updateUserAttributes": {
+            "Type": "AWS::Lambda::Function",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "Description": "[Production] Update User Attributes For User Authentication",
+                "FunctionName": "updateUserAttributes",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cf",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "updateUserAttributesRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "8e8e7cd0-41d6-41ee-bd7d-ae69e60e9875"
+                }
+            }
+        },
+        "updateUserAttributesRole": {
+            "Type": "AWS::IAM::Role",
+            "DeletionPolicy" : "Retain",
+            "Properties": {
+                "RoleName": "updateUserAttributes-role-z5bguh12",
+                "Description": "[Production] Update User Attributes Role For User Authenitcation",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/updateUserAttributes:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "e25f4130-d698-4f07-a6be-db7ec3d25278"
+                }
+            }
+        }
+    }
+}
