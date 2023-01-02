@@ -270,6 +270,20 @@
                             "Version": "2012-10-17",
                             "Statement": [
                                 {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
                                     "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
@@ -431,6 +445,20 @@
                             "Version": "2012-10-17",
                             "Statement": [
                                 {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
                                     "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
@@ -541,6 +569,20 @@
                     ]
                 },
                 "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
                     {
                         "PolicyDocument": {
                             "Version": "2012-10-17",
@@ -687,6 +729,20 @@
                             "Version": "2012-10-17",
                             "Statement": [
                                 {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
                                     "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
@@ -797,6 +853,20 @@
                     ]
                 },
                 "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
                     {
                         "PolicyDocument": {
                             "Version": "2012-10-17",
@@ -944,6 +1014,20 @@
                             "Version": "2012-10-17",
                             "Statement": [
                                 {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
                                     "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
@@ -1052,6 +1136,20 @@
                     ]
                 },
                 "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
                     {
                         "PolicyDocument": {
                             "Version": "2012-10-17",
@@ -1173,6 +1271,20 @@
                             "Version": "2012-10-17",
                             "Statement": [
                                 {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
                                     "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
@@ -1280,6 +1392,20 @@
                             "Version": "2012-10-17",
                             "Statement": [
                                 {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
                                     "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
@@ -1382,6 +1508,20 @@
                     ]
                 },
                 "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
                     {
                         "PolicyDocument": {
                             "Version": "2012-10-17",
