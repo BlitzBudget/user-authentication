@@ -362,7 +362,7 @@
                 },
                 "Environment": {
                     "Variables": {
-                        "USER_POOL_ID": "eu-west-1_w9rXcx1Io"
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
                 "Code": {
@@ -1237,7 +1237,7 @@
                         "COGNITO_CLIENT_SECRET": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientSecret}}",
                         "COGNITO_USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}",
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
-                        "AWS_LAMBDA_REGION": "eu-west-1"
+                        "AWS_LAMBDA_REGION": "${AWS::Region}"
                     }
                 },
                 "Code": {
@@ -1658,6 +1658,20 @@
                     ]
                 },
                 "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "cognito-idp:AdminUserGlobalSignOut",
+                                    "Resource": "arn:aws:cognito-idp:eu-west-1:064559090307:userpool/eu-west-1_cjfC8qNiB"
+                                }
+                            ]
+                        },
+                        "PolicyName": "adminGlobalSignout"
+                    },
                     {
                         "PolicyDocument": {
                             "Version": "2012-10-17",
