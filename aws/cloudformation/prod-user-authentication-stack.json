@@ -297,7 +297,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -310,7 +310,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -319,7 +319,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/changePassword:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/changePassword:*"
                                     ]
                                 }
                             ]
@@ -358,11 +358,11 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
-                        "USER_POOL_ID": "eu-west-1_w9rXcx1Io"
+                        "USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                     }
                 },
                 "Code": {
@@ -406,7 +406,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -472,7 +472,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -485,7 +485,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -494,7 +494,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/confirmForgotPassword:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/confirmForgotPassword:*"
                                     ]
                                 }
                             ]
@@ -533,7 +533,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -601,7 +601,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -614,7 +614,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -623,7 +623,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/confirmSignup:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/confirmSignup:*"
                                     ]
                                 }
                             ]
@@ -638,7 +638,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "cognito-idp:AdminInitiateAuth",
-                                    "Resource": "arn:aws:cognito-idp:eu-west-1:064559090307:userpool/eu-west-1_cjfC8qNiB"
+                                    "Resource": "arn:aws:cognito-idp:${AWS::Region}:${AWS::AccountId}:userpool/{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                                 }
                             ]
                         },
@@ -652,7 +652,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "dynamodb:PutItem",
-                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                    "Resource": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
                                 }
                             ]
                         },
@@ -690,7 +690,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -756,7 +756,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -769,7 +769,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -778,7 +778,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/forgotPassword:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/forgotPassword:*"
                                     ]
                                 }
                             ]
@@ -817,7 +817,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -885,7 +885,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -898,7 +898,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -907,7 +907,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/signin:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/signin:*"
                                     ]
                                 }
                             ]
@@ -922,7 +922,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "cognito-idp:AdminInitiateAuth",
-                                    "Resource": "arn:aws:cognito-idp:eu-west-1:064559090307:userpool/eu-west-1_cjfC8qNiB"
+                                    "Resource": "arn:aws:cognito-idp:${AWS::Region}:${AWS::AccountId}:userpool/{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
                                 }
                             ]
                         },
@@ -937,7 +937,7 @@
                                     "Action": [
                                         "dynamodb:Query"
                                     ],
-                                    "Resource": "arn:aws:dynamodb:eu-west-1:064559090307:table/blitzbudget"
+                                    "Resource": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}"
                                 }
                             ]
                         },
@@ -975,7 +975,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1041,7 +1041,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -1054,7 +1054,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -1063,7 +1063,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/refreshToken:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/refreshToken:*"
                                     ]
                                 }
                             ]
@@ -1102,7 +1102,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1168,7 +1168,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -1181,7 +1181,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -1190,7 +1190,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/resendConfirmationCode:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/resendConfirmationCode:*"
                                     ]
                                 }
                             ]
@@ -1229,7 +1229,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1237,7 +1237,7 @@
                         "COGNITO_CLIENT_SECRET": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientSecret}}",
                         "COGNITO_USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}",
                         "TABLE_NAME": "{{resolve:secretsmanager:prod/DynamoDB:SecretString:TableName}}",
-                        "AWS_LAMBDA_REGION": "eu-west-1"
+                        "AWS_LAMBDA_REGION": "${AWS::Region}"
                     }
                 },
                 "Code": {
@@ -1298,7 +1298,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -1311,7 +1311,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -1320,7 +1320,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/signup:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/signup:*"
                                     ]
                                 }
                             ]
@@ -1359,7 +1359,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Code": {
                     "S3Bucket": "sample-project-for-cloudformation",
@@ -1419,7 +1419,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -1432,7 +1432,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -1441,7 +1441,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/getUserAttributes:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/getUserAttributes:*"
                                     ]
                                 }
                             ]
@@ -1480,7 +1480,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Code": {
                     "S3Bucket": "sample-project-for-cloudformation",
@@ -1540,7 +1540,7 @@
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -1553,7 +1553,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -1562,7 +1562,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/updateUserAttributes:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/updateUserAttributes:*"
                                     ]
                                 }
                             ]
@@ -1600,7 +1600,7 @@
                 "Handler": "main",
                 "Runtime": "go1.x",
                 "DeadLetterConfig": {
-                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                    "TargetArn": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                 },
                 "Environment": {
                     "Variables": {
@@ -1665,8 +1665,22 @@
                                 {
                                     "Sid": "VisualEditor0",
                                     "Effect": "Allow",
+                                    "Action": "cognito-idp:AdminUserGlobalSignOut",
+                                    "Resource": "arn:aws:cognito-idp:${AWS::Region}:${AWS::AccountId}:userpool/{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                                }
+                            ]
+                        },
+                        "PolicyName": "adminGlobalSignout"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
                                     "Action": "sns:Publish",
-                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                    "Resource": "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DeadLetterNotification"
                                 }
                             ]
                         },
@@ -1679,7 +1693,7 @@
                                 {
                                     "Effect": "Allow",
                                     "Action": "logs:CreateLogGroup",
-                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                    "Resource": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
                                 },
                                 {
                                     "Effect": "Allow",
@@ -1688,7 +1702,7 @@
                                         "logs:PutLogEvents"
                                     ],
                                     "Resource": [
-                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/globalSignout:*"
+                                        "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/globalSignout:*"
                                     ]
                                 }
                             ]
