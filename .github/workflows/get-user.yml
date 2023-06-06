@@ -23,12 +23,13 @@ jobs:
 
       - name: Deploy FetchUserAttributes Test
         run: cd user/fetch/; go test -v ./...
-
-      - name: Deploy FetchUserAttributes gobuild deploy
-        uses: appleboy/lambda-action@master
+      
+      - name: Add Budget gobuild deploy
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
-          function_name: getUserAttributes
-          zip_file: user/fetch/addFetchUserAttributes.zip
+          role-to-assume: arn:aws:iam::064559090307:role/OIDCGithubRole
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: SessionRetrieveAndValidateAPIKey
+
+      - name: Update lambda
+        run: aws lambda update-function-code --function-name  getUserAttributes --zip-file fileb://user/fetch/addFetchUserAttributes.zip
