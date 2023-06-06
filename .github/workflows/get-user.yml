@@ -13,10 +13,10 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v3
         with:
           go-version: 1.18
 
@@ -24,13 +24,13 @@ jobs:
       - name: Deploy user/fetch
         run: cd user/fetch/; GOOS=linux CGO_ENABLED=0 go build cmd/main.go; zip addFetchUserAttributes.zip main; ls;
 
-      - name: Deploy FetchUserAttributes Test
+      - name: Deploy Test
         run: cd user/fetch/; go test -v ./...
       
-      - name: Add Budget gobuild deploy
+      - name: FetchUserAttributes gobuild deploy
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::064559090307:role/OIDCGithubRole
+          role-to-assume: ${{ secrets.OIDC_GITHUB_ROLE }}
           aws-region: ${{ secrets.AWS_REGION }}
           role-session-name: SessionRetrieveAndValidateAPIKey
 
