@@ -5,6 +5,12 @@ Testing out things isn't so complicated.
 
 What we need to do is fire things up.
 
+### Execute Golang Tests
+
+Inorder to Execute golang tests, execute the command below.
+
+`go test -v ./...`
+
 ### To Install dependencies
 
 `go get -v all`

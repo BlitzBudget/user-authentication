@@ -242,13 +242,37 @@
                 },
                 "z": 0,
                 "embeds": []
+            },
+            "5cba502e-c802-4992-9911-3e565a6a3d2f": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 1400
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "190fcae4-f719-4ab2-acd1-b62f3d5c5178": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 1400
+                },
+                "z": 0,
+                "embeds": []
             }
         }
     },
     "Resources": {
         "changePasswordRole": {
             "Type": "AWS::IAM::Role",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "RoleName": "changePasswordRole",
                 "Description": "[Production] Change Password Role For User Authenitcation",
@@ -326,7 +350,7 @@
         },
         "changePassword": {
             "Type": "AWS::Lambda::Function",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "Description": "[Production] Change Password For User Authentication",
                 "FunctionName": "changePassword",
@@ -342,7 +366,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -374,7 +398,7 @@
         },
         "confirmForgotPassword": {
             "Type": "AWS::Lambda::Function",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "Description": "[Production] Confirm Forgot Password For User Authentication",
                 "FunctionName": "confirmForgotPassword",
@@ -391,7 +415,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -423,7 +447,7 @@
         },
         "confirmForgotPasswordRole": {
             "Type": "AWS::IAM::Role",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "RoleName": "confirmForgotPasswordRole",
                 "Description": "[Production] Confirm Forgot Password Role For User Authenitcation",
@@ -501,7 +525,7 @@
         },
         "confirmSignup": {
             "Type": "AWS::Lambda::Function",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "Description": "[Production] Confirm Signup For User Authentication",
                 "FunctionName": "confirmSignup",
@@ -520,7 +544,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -552,7 +576,7 @@
         },
         "confirmSignupRole": {
             "Type": "AWS::IAM::Role",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "RoleName": "confirmSignupRole",
                 "Description": "[Production] Confirm Signup Role For User Authenitcation",
@@ -658,7 +682,7 @@
         },
         "forgotPassword": {
             "Type": "AWS::Lambda::Function",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "Description": "[Production] Forgot Password For User Authentication",
                 "FunctionName": "forgotPassword",
@@ -675,7 +699,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -707,7 +731,7 @@
         },
         "forgotPasswordRole": {
             "Type": "AWS::IAM::Role",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "RoleName": "forgotPassword-role-uf7s75mn",
                 "Description": "[Production] Forgot Password Role For User Authenitcation",
@@ -785,7 +809,7 @@
         },
         "signin": {
             "Type": "AWS::Lambda::Function",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "Description": "[Production] Login For User Authentication",
                 "FunctionName": "signin",
@@ -804,7 +828,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -836,7 +860,7 @@
         },
         "loginRole": {
             "Type": "AWS::IAM::Role",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "RoleName": "loginRole",
                 "Description": "[Production] Signin Role For User Authenitcation",
@@ -943,7 +967,7 @@
         },
         "refreshToken": {
             "Type": "AWS::Lambda::Function",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "Description": "[Production] Refresh Token For User Authentication",
                 "FunctionName": "refreshToken",
@@ -960,7 +984,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -992,7 +1016,7 @@
         },
         "refreshTokenRole": {
             "Type": "AWS::IAM::Role",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "RoleName": "refreshTokenRole",
                 "Description": "[Production] Refresh Token Role For User Authenitcation",
@@ -1070,7 +1094,7 @@
         },
         "resendConfirmationCode": {
             "Type": "AWS::Lambda::Function",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "Description": "[Production] Resend Confirmation Code For User Authentication",
                 "FunctionName": "resendConfirmationCode",
@@ -1087,7 +1111,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1119,7 +1143,7 @@
         },
         "resendConfirmationCodeRole": {
             "Type": "AWS::IAM::Role",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "RoleName": "resendConfirmationCodeRole",
                 "Description": "[Production] Resend Confirmation Code Role For User Authenitcation",
@@ -1197,7 +1221,7 @@
         },
         "signup": {
             "Type": "AWS::Lambda::Function",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "Description": "[Production] Signup For User Authentication",
                 "FunctionName": "signup",
@@ -1217,7 +1241,7 @@
                     }
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1249,7 +1273,7 @@
         },
         "signupRole": {
             "Type": "AWS::IAM::Role",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "RoleName": "signupRole",
                 "Description": "[Production] Signup Role For User Authenitcation",
@@ -1327,7 +1351,7 @@
         },
         "getUserAttributes": {
             "Type": "AWS::Lambda::Function",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "Description": "[Production] Get User Attributes For User Authentication",
                 "FunctionName": "getUserAttributes",
@@ -1338,7 +1362,7 @@
                     "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1370,7 +1394,7 @@
         },
         "getUserAttributesRole": {
             "Type": "AWS::IAM::Role",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "RoleName": "getUserAttributes-role-gdg2n5qt",
                 "Description": "[Production] Get User Attributes Role For User Authenitcation",
@@ -1448,7 +1472,7 @@
         },
         "updateUserAttributes": {
             "Type": "AWS::Lambda::Function",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "Description": "[Production] Update User Attributes For User Authentication",
                 "FunctionName": "updateUserAttributes",
@@ -1459,7 +1483,7 @@
                     "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
                 },
                 "Code": {
-                    "S3Bucket": "sample-project-for-cf",
+                    "S3Bucket": "sample-project-for-cloudformation",
                     "S3Key": "golang-sample.zip"
                 },
                 "Tags": [
@@ -1491,7 +1515,7 @@
         },
         "updateUserAttributesRole": {
             "Type": "AWS::IAM::Role",
-            "DeletionPolicy" : "Retain",
+            "DeletionPolicy": "Retain",
             "Properties": {
                 "RoleName": "updateUserAttributes-role-z5bguh12",
                 "Description": "[Production] Update User Attributes Role For User Authenitcation",
@@ -1564,6 +1588,132 @@
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "e25f4130-d698-4f07-a6be-db7ec3d25278"
+                }
+            }
+        },
+        "globalSignout": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "Description": "[Production] Global Signout from Cognito For User Authentication",
+                "FunctionName": "globalSignout",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "COGNITO_CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientId}}",
+                        "COGNITO_CLIENT_SECRET": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientSecret}}",
+                        "COGNITO_USER_POOL_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:UserPoolID}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cloudformation",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "globalSignoutRole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "5cba502e-c802-4992-9911-3e565a6a3d2f"
+                }
+            }
+        },
+        "globalSignoutRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": "globalSignoutRole",
+                "Description": "[Production] Global Signout Role For User Authenitcation",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/globalSignout:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "190fcae4-f719-4ab2-acd1-b62f3d5c5178"
                 }
             }
         }
