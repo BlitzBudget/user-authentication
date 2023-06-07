@@ -1,6 +1,7 @@
 package service
 
 import (
+	"errors"
 	"fmt"
 	"global-signout/permissions"
 	"global-signout/service/repository"
@@ -24,13 +25,18 @@ func GlobalSignoutUser(body *string) error {
 		return err
 	}
 
-	userHasPermission, err := permissions.UserHasPermissions(mo.AccessToken, cognitoClient, mo.Email)
-	if err != nil || !userHasPermission {
+	userHasPermission, err, email := permissions.UserHasPermissions(mo.AccessToken, cognitoClient)
+	if err != nil {
 		fmt.Printf("The User does not have permissions to perform this acction %v \n", err)
 		return err
 	}
+	if !userHasPermission {
+		err = errors.New("the User does not have permission to perform the global signout")
+		fmt.Printf("%v \n", err.Error())
+		return err
+	}
 
-	err = repository.CognitoGlobalSignout(cognitoClient, mo)
+	err = repository.CognitoGlobalSignout(cognitoClient, email)
 	if err != nil {
 		fmt.Printf("globalSignoutUser: There was an error logging the user %v \n", err)
 		return err

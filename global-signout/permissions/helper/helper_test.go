@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestFetchUserRoleFromUser(t *testing.T) {
+func TestFetchEmailFromUser(t *testing.T) {
 	assert := assert.New(t)
 
 	name := "custom:user_role_id"
@@ -18,7 +18,7 @@ func TestFetchUserRoleFromUser(t *testing.T) {
 	value2 := "value2"
 	name3 := "name3"
 	value3 := "value3"
-	email := "email"
+	username := "291303e4-cbed-4904-8592-3f28503e0f4c"
 
 	attributeTypes := []*models.UserAttribute{
 		{
@@ -41,7 +41,7 @@ func TestFetchUserRoleFromUser(t *testing.T) {
 
 	userResponse := models.FetchUserResponse{
 		UserAttributes: attributeTypes,
-		Username:       &email,
+		Username:       &username,
 	}
 
 	respEmail := FetchEmailFromUser(&userResponse)
