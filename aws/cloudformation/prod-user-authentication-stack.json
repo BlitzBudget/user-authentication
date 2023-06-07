@@ -266,6 +266,30 @@
                 },
                 "z": 0,
                 "embeds": []
+            },
+            "d3d111dc-7469-45b3-8cb1-f00fd7499856": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 400,
+                    "y": 1500
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "ba7eb44a-1bc1-498d-9766-164e631cda59": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 1500
+                },
+                "z": 0,
+                "embeds": []
             }
         }
     },
@@ -1728,6 +1752,117 @@
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "190fcae4-f719-4ab2-acd1-b62f3d5c5178"
+                }
+            }
+        },
+        "confirmMFA": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "Description": "[Production] Confirm MFA Cognito For User Authentication",
+                "FunctionName": "confirmMFA",
+                "MemorySize": 512,
+                "Handler": "main",
+                "Runtime": "go1.x",
+                "DeadLetterConfig": {
+                    "TargetArn": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                },
+                "Environment": {
+                    "Variables": {
+                        "CLIENT_ID": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientId}}",
+                        "CLIENT_SECRET": "{{resolve:secretsmanager:prod/Cognito/AppClient:SecretString:ClientSecret}}"
+                    }
+                },
+                "Code": {
+                    "S3Bucket": "sample-project-for-cloudformation",
+                    "S3Key": "golang-sample.zip"
+                },
+                "Tags": [
+                    {
+                        "Key": "author",
+                        "Value": "Nagarjun"
+                    },
+                    {
+                        "Key": "stage",
+                        "Value": "Production"
+                    },
+                    {
+                        "Key": "site",
+                        "Value": "BlitzBudget"
+                    }
+                ],
+                "Role": {
+                    "Fn::GetAtt": [
+                        "confirmMFARole",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "d3d111dc-7469-45b3-8cb1-f00fd7499856"
+                }
+            }
+        },
+        "confirmMFARole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": "confirmMFARole",
+                "Description": "[Production] Confirm MFA Role",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": "logs:CreateLogGroup",
+                                    "Resource": "arn:aws:logs:eu-west-1:064559090307:*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:eu-west-1:064559090307:log-group:/aws/lambda/confirmMFA:*"
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "awsLambdaBasicExecutionPolicy"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Sid": "VisualEditor0",
+                                    "Effect": "Allow",
+                                    "Action": "sns:Publish",
+                                    "Resource": "arn:aws:sns:eu-west-1:064559090307:DeadLetterNotification"
+                                }
+                            ]
+                        },
+                        "PolicyName": "publishToDeadLetterQueue"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ba7eb44a-1bc1-498d-9766-164e631cda59"
                 }
             }
         }
