@@ -1,7 +1,6 @@
 package repository
 
 import (
-	"global-signout/service/models"
 	"testing"
 
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
@@ -23,13 +22,8 @@ func TestCognitoGlobalSignout(t *testing.T) {
 
 	mockCC := &mockCognitoClient{}
 	email := "abc@bc.com"
-	accessToken := "12345678912345678912"
-	req := models.RequestParameter{
-		Email:       &email,
-		AccessToken: &accessToken,
-	}
 
-	err := CognitoGlobalSignout(mockCC, &req)
+	err := CognitoGlobalSignout(mockCC, &email)
 
 	assert.NoError(err)
 }

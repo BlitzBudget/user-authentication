@@ -19,34 +19,9 @@ func TestParseRequest(t *testing.T) {
 
 		// now we know that object isn't nil, we are safe to make
 		// further assertions without causing any errors
-		assert.Equal("abc@bc.com", *requestParameter.Email)
 		assert.Equal("12345678912345678912345", *requestParameter.AccessToken)
 	}
 
-}
-
-func TestEmptyEmail(t *testing.T) {
-	assert := assert.New(t)
-	body := "{ \"access_token\": \"12345678912345678912345\"}"
-
-	requestParameter, err := ParseRequest(&body)
-
-	assert.Error(err)
-	assert.Equal("the email id is empty", err.Error())
-	// assert for nil
-	assert.Nil(requestParameter)
-}
-
-func TestInvalidEmail(t *testing.T) {
-	assert := assert.New(t)
-	body := "{\"email\":\"\", \"access_token\": \"12345678912345678912345\"}"
-
-	requestParameter, err := ParseRequest(&body)
-
-	assert.Error(err)
-	assert.Equal("the email entered is invalid", err.Error())
-	// assert for nil
-	assert.Nil(requestParameter)
 }
 
 func TestEmptyAccessToken(t *testing.T) {

@@ -8,19 +8,19 @@ import (
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider/cognitoidentityprovideriface"
 )
 
-func UserHasPermissions(accessToken *string, cognitoClient cognitoidentityprovideriface.CognitoIdentityProviderAPI, userEmail *string) (bool, error) {
+func UserHasPermissions(accessToken *string, cognitoClient cognitoidentityprovideriface.CognitoIdentityProviderAPI) (bool, error, *string) {
 	resp, err := fetchUser.GetUser(accessToken, cognitoClient)
 	if err != nil {
 		fmt.Printf("Unable to Verify AccessToken %v \n", err)
-		return false, err
+		return false, err, nil
 	}
 
 	email := helper.FetchEmailFromUser(resp)
-	if *email != *userEmail {
+	if email == nil {
 		fmt.Println("You do not have access to do a global signout")
-		return false, nil
+		return false, nil, nil
 	}
 
 	fmt.Println("You are authorized to do the global signout")
-	return true, nil
+	return true, nil, email
 }

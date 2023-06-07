@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"global-signout/service/errors"
 	"global-signout/service/models"
-	"net/mail"
 )
 
 func ParseRequest(body *string) (*models.RequestParameter, error) {
@@ -30,17 +29,8 @@ func ParseRequest(body *string) (*models.RequestParameter, error) {
 
 func mandatoryFieldsCheck(requestParamater models.RequestParameter) error {
 
-	if requestParamater.Email == nil {
-		return errors.ErrEmptyEmailInRequest
-	}
-
 	if requestParamater.AccessToken == nil {
 		return errors.ErrEmptyAccessTokenInRequest
-	}
-
-	_, err := mail.ParseAddress(*requestParamater.Email)
-	if err != nil {
-		return errors.ErrInvalidEmailInRequest
 	}
 
 	if len(*requestParamater.AccessToken) <= 20 {

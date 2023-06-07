@@ -3,18 +3,17 @@ package repository
 import (
 	"fmt"
 	"global-signout/service/config"
-	"global-signout/service/models"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider/cognitoidentityprovideriface"
 )
 
-func CognitoGlobalSignout(cognitoClient cognitoidentityprovideriface.CognitoIdentityProviderAPI, req *models.RequestParameter) error {
+func CognitoGlobalSignout(cognitoClient cognitoidentityprovideriface.CognitoIdentityProviderAPI, email *string) error {
 
 	authInput := cognitoidentityprovider.AdminUserGlobalSignOutInput{
 		UserPoolId: aws.String(config.UserPoolId),
-		Username:   req.Email,
+		Username:   email,
 	}
 
 	resp, err := cognitoClient.AdminUserGlobalSignOut(&authInput)
